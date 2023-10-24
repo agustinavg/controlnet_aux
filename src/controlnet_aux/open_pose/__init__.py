@@ -196,7 +196,7 @@ class OpenposeDetector:
             
             return results
         
-    def __call__(self, input_image, detect_resolution=512, image_resolution=512, include_body=True, include_hand=False, include_face=False, hand_and_face=None, output_type="pil", **kwargs):
+    def __call__(self, input_image, detect_resolution=512, image_resolution=512, include_body=True, include_hand=False, include_face=False, hand_and_face=None, output_type="pil", return_pose=False, **kwargs):
         if hand_and_face is not None:
             warnings.warn("hand_and_face is deprecated. Use include_hand and include_face instead.", DeprecationWarning)
             include_hand = hand_and_face
@@ -231,4 +231,6 @@ class OpenposeDetector:
         if output_type == "pil":
             detected_map = Image.fromarray(detected_map)
 
+        if return_pose:
+            return detected_map, poses
         return detected_map
