@@ -7,44 +7,19 @@ from typing import Dict, Optional, Union
 
 from PIL import Image
 
-from controlnet_aux import (CannyDetector, ContentShuffleDetector, HEDdetector,
-                            LeresDetector, LineartAnimeDetector,
-                            LineartDetector, MediapipeFaceDetector,
-                            MidasDetector, MLSDdetector, NormalBaeDetector,
-                            OpenposeDetector, PidiNetDetector, ZoeDetector,
-                            DWposeDetector)
+from controlnet_aux import (CannyDetector,OpenposeDetector)
 
 LOGGER = logging.getLogger(__name__)
 
 
 MODELS = {
     # checkpoint models
-    'scribble_hed': {'class': HEDdetector, 'checkpoint': True},
-    'softedge_hed': {'class': HEDdetector, 'checkpoint': True},
-    'scribble_hedsafe': {'class': HEDdetector, 'checkpoint': True},
-    'softedge_hedsafe': {'class': HEDdetector, 'checkpoint': True},
-    'depth_midas': {'class': MidasDetector, 'checkpoint': True},
-    'mlsd': {'class': MLSDdetector, 'checkpoint': True},
     'openpose': {'class': OpenposeDetector, 'checkpoint': True},
     'openpose_face': {'class': OpenposeDetector, 'checkpoint': True},
     'openpose_faceonly': {'class': OpenposeDetector, 'checkpoint': True},
     'openpose_full': {'class': OpenposeDetector, 'checkpoint': True},
     'openpose_hand': {'class': OpenposeDetector, 'checkpoint': True},
-    'dwpose': {'class': DWposeDetector, 'checkpoint': True},
-    'scribble_pidinet': {'class': PidiNetDetector, 'checkpoint': True},
-    'softedge_pidinet': {'class': PidiNetDetector, 'checkpoint': True},
-    'scribble_pidsafe': {'class': PidiNetDetector, 'checkpoint': True},
-    'softedge_pidsafe': {'class': PidiNetDetector, 'checkpoint': True},
-    'normal_bae': {'class': NormalBaeDetector, 'checkpoint': True},
-    'lineart_coarse': {'class': LineartDetector, 'checkpoint': True},
-    'lineart_realistic': {'class': LineartDetector, 'checkpoint': True},
-    'lineart_anime': {'class': LineartAnimeDetector, 'checkpoint': True},
-    'depth_zoe': {'class': ZoeDetector, 'checkpoint': True}, 
-    'depth_leres': {'class': LeresDetector, 'checkpoint': True}, 
-    'depth_leres++': {'class': LeresDetector, 'checkpoint': True}, 
     # instantiate
-    'shuffle': {'class': ContentShuffleDetector, 'checkpoint': False},
-    'mediapipe_face': {'class': MediapipeFaceDetector, 'checkpoint': False},
     'canny': {'class': CannyDetector, 'checkpoint': False},
 }
 
